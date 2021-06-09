@@ -1,7 +1,18 @@
-FROM deegree/deegree3-docker
+FROM gitpod/workspace-full
 
-# Install custom tools, runtimes, etc.
-# For example "bastet", a command-line tetris clone:
-# RUN brew install bastet
-#
-# More information: https://www.gitpod.io/docs/config-docker/
+# Gitpod will not rebuild Nushell's dev image unless *some* change is made to this Dockerfile.
+# To force a rebuild, simply increase this counter:
+ENV TRIGGER_REBUILD 1
+
+USER gitpod
+
+RUN sudo apt-get update && \
+    sudo apt-get install -y \
+        libssl-dev \
+        libxcb-composite0-dev \
+        pkg-config \
+        libpython3.6 \
+        rust-lldb \
+    && sudo rm -rf /var/lib/apt/lists/*
+
+ENV RUST_LLDB=/usr/bin/lldb-11
