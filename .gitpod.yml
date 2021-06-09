@@ -3,5 +3,5 @@ image:
 
 tasks:
   - init: 'echo "TODO: Replace with init/build command"'
-    command: 'docker-compose -f demo/docker-compose.yml up'
+    command: 'docker-compose -f docker/docker-compose.yml up'
 #   command: 'run --name deegree -d -p 8080:8080 deegree/deegree3-docker'
