@@ -13,6 +13,7 @@ RUN sudo apt-get update && \
         pkg-config \
         libpython3.6 \
         rust-lldb \
+        joe \
     && sudo rm -rf /var/lib/apt/lists/*
 
 ENV RUST_LLDB=/usr/bin/lldb-11

@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  deegree:
+    image: deegree/deegree3-docker:latest
+    volumes:
+      # adding the default DEEGREE_WORKSPACE_ROOT to the container
+      - ./workspace:/root/.deegree      
+    ports:
+      - 8080:8080
+#    environment:
+#      - CONSOLE_PASSWORD=
+#    restart: always
+    networks:
+      - network1
+networks:
+  network1:
+    driver: bridge
